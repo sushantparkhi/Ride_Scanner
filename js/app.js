@@ -5,7 +5,7 @@ ngAutoComplete: Auto Complete Directive
 ui.bootstrap: Bootstrap Tab based on AngularJS
 toaster: For Toast Notification
 External Dependencies Ends*/
-var myApp = angular.module("myApp", ['ngAnimate', 'ngRoute', 'ngAutocomplete', 'ngMap', 'ui.bootstrap', 'toaster','angulartics', 'angulartics.google.analytics'])
+var myApp = angular.module("myApp", ['ngAnimate', 'ngRoute', 'ngAutocomplete', 'ngMap', 'ui.bootstrap', 'toaster'])
 //Routing Configuration
     .config(function ($routeProvider) {
         $routeProvider
@@ -22,7 +22,7 @@ var myApp = angular.module("myApp", ['ngAnimate', 'ngRoute', 'ngAutocomplete', '
             return {
                 'request': function (config) {
                     if (config.url.indexOf("uber") >= 0) {
-                        config.headers["Authorization"] = 'Token iot6tHkOuq9X4ruQVOiJ36LvFw6jFUiTNapg2mm6';
+                        config.headers["Authorization"] = 'Token cLRwtd1nEEcmmdDyI3dz2bxX2iUOqD6gwvthMQu9';
                     } else if (config.url.indexOf("oauth/token") >= 0) {
                         config.headers["Authorization"] = " Basic " + btoa("oiMVwGmsaAVS:ph4STG3bT6Fgk1GzuLeV7FRKV5RX8P7W");
                     } else {

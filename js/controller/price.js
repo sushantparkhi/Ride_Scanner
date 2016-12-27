@@ -1,7 +1,4 @@
-myApp.controller("PriceCtrl", function ($scope,$analytics, $http, $filter, $timeout, toaster, UberService, LyftService) {
-    //Analytics Tracking
-    $analytics.pageTrack('/price');
-
+myApp.controller("PriceCtrl", function ($scope, $http, $filter, $timeout, toaster, UberService, LyftService) {
     //Variable Declaration Starts
     $scope.options = '';
     $scope.pickup = '';
@@ -56,8 +53,6 @@ myApp.controller("PriceCtrl", function ($scope,$analytics, $http, $filter, $time
             UberService.getPriceEstimate($scope.pickuplatlng.lat(), $scope.pickuplatlng.lng(), $scope.destlatlng.lat(), $scope.destlatlng.lng())
                 .then(function (data) {
                     console.log("Uber Data");
-                    $analytics.eventTrack('UberAPI');
-                    $analytics.eventTrack('UberAPI', {  category: 'API', label: 'Uber' });
                     console.log(data.prices);
                     $scope.uber = data.prices;
                     $filter('orderBy')($scope.uber, 'low_estimate');
@@ -76,9 +71,6 @@ myApp.controller("PriceCtrl", function ($scope,$analytics, $http, $filter, $time
                 $scope.lyft = data.cost_estimates;
                 $scope.lyft.sort(comp);
                 console.log("Lyft Data");
-                $analytics.eventTrack('LyftAPI');
-                $analytics.eventTrack('LyftAPI', {  category: 'API', label: 'Lyft' });
-
                 console.log($scope.lyft);
                 toaster.pop('success', "Lyft Prices", "Lyft Prices Loaded Successfully");
             });

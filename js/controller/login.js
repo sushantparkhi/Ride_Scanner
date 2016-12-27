@@ -1,5 +1,4 @@
-myApp.controller("LoginCtrl", function ($scope, $analytics, $location,toaster) {
-    $analytics.pageTrack('/login');
+myApp.controller("LoginCtrl", function ($scope, $location,toaster) {
     $scope.uname = '';
     $scope.pwd = '';
     $scope.price = function (event) {
